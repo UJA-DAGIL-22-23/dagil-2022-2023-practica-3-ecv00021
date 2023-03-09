@@ -7,6 +7,9 @@ Apellidos: Carmona Vallecillo
 
 Dirección de correo: ecv00021@red.ujaen.es
 
+## TRELLO
+Enlace al tablero: https://trello.com/b/DMmJ606U/tablero-pr3
+
 ## FAUNA
 ### Home
 <img src='imagenes\home.png'>
@@ -264,3 +267,23 @@ Dirección de correo: ecv00021@red.ujaen.es
 }
 ```
 
+## Primer incremento v1_09-03-2023
+### HU implementadas
+- 01- Ver la información del autor/autora de la aplicación al pulsar en el botón “Acerca de”
+- 
+- 
+
+### Captura Trello al comienzo del incremento
+<img src='imagenes\'>
+
+### Captura Trello al final del incremento
+<img src='imagenes\'>
+
+### Captura funcionalidad HU 01
+<img src='imagenes\hu_01.png'>
+
+### Captura funcionalidad HU 
+<img src='imagenes\'>
+
+### Captura funcionalidad HU 
+<img src='imagenes\'>
