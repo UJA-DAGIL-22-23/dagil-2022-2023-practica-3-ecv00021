@@ -270,11 +270,11 @@ Enlace al tablero: https://trello.com/b/DMmJ606U/tablero-pr3
 ## Primer incremento v1_09-03-2023
 ### HU implementadas
 - 01- Ver la información del autor/autora de la aplicación al pulsar en el botón “Acerca de”
-- 
-- 
+- 02- Ver un listado solo con los nombres de todos los jugadores/equipos.
+- 06- Ver todos los datos de un determinado jugador/equipo.
 
 ### Captura Trello al comienzo del incremento
-<img src='imagenes\'>
+<img src='imagenes\trello_inicio1.png'>
 
 ### Captura Trello al final del incremento
 <img src='imagenes\'>
@@ -282,8 +282,8 @@ Enlace al tablero: https://trello.com/b/DMmJ606U/tablero-pr3
 ### Captura funcionalidad HU 01
 <img src='imagenes\hu_01.png'>
 
-### Captura funcionalidad HU 
+### Captura funcionalidad HU 02
 <img src='imagenes\'>
 
-### Captura funcionalidad HU 
+### Captura funcionalidad HU 06
 <img src='imagenes\'>

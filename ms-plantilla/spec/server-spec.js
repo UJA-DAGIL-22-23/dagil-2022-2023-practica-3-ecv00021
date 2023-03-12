@@ -65,6 +65,21 @@ describe('Servidor PLANTILLA:', () => {
     });
 
   })
+
+  it('Devuelve Fernando al recuperar los datos de la Persona con id 358542021274632397 mediante getPorId', (done) => {
+    supertest(app)
+      .get('/getPorId/358542021274632397')
+      .expect(200)
+      .expect('Content-Type', /json/)
+      .expect(function (res) {
+        //console.log( res.body ); // Para comprobar qué contiene exactamente res.body
+        assert(res.body.data.hasOwnProperty('nombre'));
+        assert(res.body.data.nombre === "Fernando");
+      })
+      .end((error) => { error ? done.fail(error) : done(); }
+      );
+  });
+
 });
 
 

@@ -18,6 +18,18 @@ Plantilla.datosDescargadosNulos = {
     fecha: ""
 }
 
+/// Nombre de los campos del formulario para editar una persona
+Plantilla.form = {
+    nombre: "form-persona-nombre",
+    apellidos: "form-persona-apellidos",
+    fechaNacimiento: "form-persona-fecha",
+    pais: "form-persona-pais",
+    aniosCompeticion: "form-persona-anios",
+    numero_campeonatos_ganados: "form-persona-campeonatos",
+    nombre_equipo: "form-persona-equipo",
+    categoria: "form-persona-categoria",
+}
+
 
 /**
  * Función que descarga la info MS Plantilla al llamar a una de sus rutas
@@ -105,6 +117,51 @@ Plantilla.procesarHome = function () {
  */
 Plantilla.procesarAcercaDe = function () {
     this.descargarRuta("/plantilla/acercade", this.mostrarAcercaDe);
+}
+
+/**
+ * Función que recupera un jugador por su id. 
+ * Posteriormente, llama a la función callBackFn para trabajar con los datos recuperados.
+ * @param {String} idJugador Identificador de la persona a mostrar
+ * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
+ */
+Plantilla.recuperaJugador = async function (idJugador, callBackFn) {
+    try {
+        const url = Frontend.API_GATEWAY + "/plantilla/getPorId/" + idJugador
+        const response = await fetch(url);
+        if (response) {
+            const persona = await response.json()
+            callBackFn(persona)
+        }
+    } catch (error) {
+        alert("Error: No se han podido acceder al API Gateway")
+        console.error(error)
+    }
+}
+
+/**
+ * Función para mostrar en pantalla los detalles de un juagador que se ha recuperado de la BBDD por su id
+ * @param {Plantilla} jugador Datos del jugador a mostrar
+ */
+
+Plantilla.imprimeJugador = function (jugador) {
+    // console.log(persona) // Para comprobar lo que hay en vector
+    //let msj = Personas.personaComoFormulario(persona);
+    let msj = `${jugador.nombre}`;
+
+    // Borro toda la info de Article y la sustituyo por la que me interesa
+    Frontend.Article.actualizar("Mostrar un jugador", msj)
+
+    // Actualiza el objeto que guarda los datos mostrados
+    //Personas.almacenaDatos(persona)
+}
+
+/**
+ * Función principal para mostrar los datos de un jugador desde el MS y, posteriormente, imprimirla.
+ * @param {String} idJugador Identificador dej jugador a mostrar
+ */
+Plantilla.mostrarJugador = function (idJugador) {
+    this.recuperaJugador(idJugador, this.imprimeJugador);
 }
 
 
