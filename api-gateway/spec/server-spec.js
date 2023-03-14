@@ -40,22 +40,41 @@ describe('API Gateway: rutas estáticas', () => {
         .end((error) => { error ? done.fail(error) : done() })
     });
 
-    it(' > Obtener una persona por su id: debe tener un campo data y a su vez un nombre que es Fernando', (done) => {
-      supertest(app)
-        .get('/plantilla/getPorId/358542021274632397')
-        .expect(200)
-        .expect('Content-Type', /json/)
-        .expect(function (res) {
-          // console.log( "getPorId Persona", res.body ); // Para comprobar qué contiene exactamente res.body
-          assert(res.body.hasOwnProperty('data'));
-          assert(res.body.data.hasOwnProperty('nombre'));
-          assert(res.body.data.nombre === "Fernando");
-        })
-        .end((error) => { error ? done.fail(error) : done() })
-    });
 
   })
 });
+
+describe('BBDD Personas', () => {
+  it(' > Obtener una persona por su id: debe tener un campo data y a su vez un nombre que es Fernando', (done) => {
+    supertest(app)
+      .get('/plantilla/getPorId/358542021274632397')
+      .expect(200)
+      .expect('Content-Type', /json/)
+      .expect(function (res) {
+        // console.log( "getPorId Persona", res.body ); // Para comprobar qué contiene exactamente res.body
+        assert(res.body.hasOwnProperty('data'));
+        assert(res.body.data.hasOwnProperty('nombre'));
+        assert(res.body.data.nombre === "Fernando");
+      })
+      .end((error) => { error ? done.fail(error) : done() })
+  });
+
+  it(' > Obtener todas las personas: debe tener un campo data que es un array de 10 objetos', (done) => {
+    supertest(app)
+      .get('/plantilla/getTodas')
+      .expect(200)
+      .expect('Content-Type', /json/)
+      .expect(function (res) {
+        //console.log( "Get Todos Personas", res.body ); // Para comprobar qué contiene exactamente res.body
+        assert(res.body.hasOwnProperty('data'));
+        assert(res.body.data.length === 10);
+
+      })
+      .end((error) => { error ? done.fail(error) : done() })
+  });
+
+});
+
 
 
 
