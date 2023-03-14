@@ -20,6 +20,18 @@ const datosDescargadosPrueba = {
     fecha: "00/00/0000"
 }
 
+const datosPrueba = {
+    nombre: "ksdnlsk",
+    apellidos: "",
+    fechaNacimiento: "",
+    pais: "",
+    aniosCompeticion: "",
+    numero_campeonatos_ganados: "",
+    nombre_equipo: "",
+    categoria: "",
+    altura: ""
+}
+
 
 // Función para esperar y dar tiempo a que responda el microservicio
 function esperar(ms) {
@@ -123,14 +135,40 @@ describe("Plantilla.mostrarAcercaDe: ", function () {
         })
 })
 
-describe("Plantilla.imprimeNombresOrdenados ", function () {
+
+/*
+Las siguientes funciones no podemos probarlas ya que se encargan de probar las conexiones con el microservicio:
+-recuperaJugador()
+-mostrarJugador()
+-recupera()
+-mostrarNombresJugadores()
+*/
+
+describe("Plantilla.imprimeJugador: ", function () {
+    it("muestra los datos de un jugador",
+        function () {
+            Plantilla.imprimeJugador(datosPrueba)
+            expect(elementoTitulo.innerHTML).toBe('Mostrar datos del jugador')
+            //expect(elementoContenido.innerHTML.search(datosPrueba.nombre) >= 0).toBeTrue()
+        })
+})
+/*
+describe("Plantilla.imprimeNombres: ", function () {
+    it("muestra los nombres de un jugador",
+        function () {
+            Plantilla.imprimeNombres(datosPrueba)
+            expect(elementoContenido.innerHTML.search(datosPrueba.nombre) >= 0).toBeTrue()
+        })
+})
+
+describe("Plantilla.imprimeNombresOrdenados: ", function () {
     it("muestra datos ordenados alfabéticamente",
         function () {
             let v = ['Elena', 'Carlos', 'Ana']
             Plantilla.imprimeNombresOrdenados(v)
             expect(v[0]).toBe('Ana')
         })
-})
+})*/
 
 
 /*

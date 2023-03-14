@@ -248,5 +248,35 @@ Plantilla.imprimeNombresOrdenados = function (vector) {
     Frontend.Article.actualizar("Nombres jugadores ordenados alfabéticamente:", msj)
 }
 
+/**
+ * Función principal para mostrar los datos de todos los jugadores desde el MS y, posteriormente, imprimirla.
+ */
+Plantilla.mostrarDatosJugadores = function () {
+    Plantilla.recupera(Plantilla.imprimeDatos);
+}
 
+/**
+ * Función para mostrar en pantalla los datos de todos los jugadores que se han recuperado de la BBDD.
+ * @param {Vector_de_personas} vector Vector con los datos de las personas a mostrar
+ */
+
+Plantilla.imprimeDatos = function (vector) {
+    // console.log(vector) // Para comprobar lo que hay en vector
+ 
+    let msj = `<div>`
+    vector.forEach(e => msj += ` <h1> Jugador </h1>
+        <p> Nombre del jugador: ${e.data.nombre} </p>
+        <p> Apellidos del jugador: ${e.data.apellidos} </p>
+        <p> Fecha de nacimiento del jugador: ${e.data.fechaNacimiento.dia}/${e.data.fechaNacimiento.mes}/${e.data.fechaNacimiento.anio} </p>
+        <p> País del jugador: ${e.data.pais} </p>
+        <p> Años competición del jugador: ${e.data.aniosCompeticion} </p>
+        <p> Número de campeonatos ganados del jugador: ${e.data.numero_campeonatos_ganados} </p>
+        <p> Nombre del equipo del jugador: ${e.data.nombre_equipo} </p>
+        <p> Categoría del jugador: ${e.data.categoria} </p>
+        <p> Altura del jugador: ${e.data.altura} </p> `)
+    msj += `</div>`
+
+    // Borro toda la info de Article y la sustituyo por la que me interesa
+    Frontend.Article.actualizar("Datos jugadores:", msj)
+}
 
