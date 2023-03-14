@@ -174,26 +174,53 @@ Plantilla.mostrarJugador = function (idJugador) {
 }
 
 /**
- * Función principal para mostrar los datos de todos los jugadores desde el MS y, posteriormente, imprimirla.
+ * Función que recuperar todas las personas llamando al MS Personas
+ * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
-Plantilla.mostrarNombresJugadores = function () {
-    Plantilla.recuperaJugador(Plantilla.imprimeMuchasPersonas);
+
+Plantilla.recupera = async function (callBackFn) {
+    let response = null
+
+    // Intento conectar con el microservicio personas
+    try {
+        const url = Frontend.API_GATEWAY + "/plantilla/getTodas"
+        response = await fetch(url)
+
+    } catch (error) {
+        alert("Error: No se han podido acceder al API Gateway")
+        console.error(error)
+        //throw error
+    }
+
+    // Muestro todas las persoans que se han descargado
+    let vectorPersonas = null
+    if (response) {
+        vectorPersonas = await response.json()
+        callBackFn(vectorPersonas.data)
+    }
 }
 
 /**
- * Función para mostrar en pantalla todas las personas que se han recuperado de la BBDD.
+ * Función principal para mostrar los nombres de todos los jugadores desde el MS y, posteriormente, imprimirla.
+ */
+Plantilla.mostrarNombresJugadores = function () {
+    Plantilla.recupera(Plantilla.imprimeNombres);
+}
+
+/**
+ * Función para mostrar en pantalla los nombres de todos los jugadores que se han recuperado de la BBDD.
  * @param {Vector_de_personas} vector Vector con los datos de las personas a mostrar
  */
 
-Plantilla.imprimeMuchasPersonas = function (vector) {
+Plantilla.imprimeNombres = function (vector) {
     // console.log(vector) // Para comprobar lo que hay en vector
 
-    let msj 
-    vector.forEach(e => msj += Plantilla.plantillaTablaPersonas.actualiza(e.data))
-    msj += Personas.plantillaTablaPersonas.pie
+    let msj = `<div>`
+    vector.forEach(e => msj += `<p> ${e.data.nombre} </p>`)
+    msj += `</div>`
 
     // Borro toda la info de Article y la sustituyo por la que me interesa
-    Frontend.Article.actualizar("Listado de personas", msj)
+    Frontend.Article.actualizar("Nombres jugadores:", msj)
 }
 
 
