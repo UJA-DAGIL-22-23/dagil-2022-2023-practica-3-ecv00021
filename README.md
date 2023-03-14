@@ -286,4 +286,4 @@ Enlace al tablero: https://trello.com/b/DMmJ606U/tablero-pr3
 <img src='imagenes\'>
 
 ### Captura funcionalidad HU 06
-<img src='imagenes\'>
+<img src='imagenes\hu_06.png'>
