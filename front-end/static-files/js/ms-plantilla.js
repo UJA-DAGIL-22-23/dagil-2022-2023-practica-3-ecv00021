@@ -28,6 +28,7 @@ Plantilla.form = {
     numero_campeonatos_ganados: "form-persona-campeonatos",
     nombre_equipo: "form-persona-equipo",
     categoria: "form-persona-categoria",
+    altura: "form-persona-altura",
 }
 
 
@@ -147,13 +148,21 @@ Plantilla.recuperaJugador = async function (idJugador, callBackFn) {
 Plantilla.imprimeJugador = function (jugador) {
     // console.log(persona) // Para comprobar lo que hay en vector
     //let msj = Personas.personaComoFormulario(persona);
-    let msj = `${jugador.nombre}`;
+    jugador=jugador.data
+    let msj = `<div> 
+    <p> Nombre del jugador: ${jugador.nombre} </p>
+    <p> Apellidos del jugador: ${jugador.apellidos} </p>
+    <p> Fecha de nacimiento del jugador: ${jugador.fechaNacimiento.dia}/${jugador.fechaNacimiento.mes}/${jugador.fechaNacimiento.anio} </p>
+    <p> País del jugador: ${jugador.pais} </p>
+    <p> Años competición del jugador: ${jugador.aniosCompeticion} </p>
+    <p> Número de campeonatos ganados del jugador: ${jugador.numero_campeonatos_ganados} </p>
+    <p> Nombre del equipo del jugador: ${jugador.nombre_equipo} </p>
+    <p> Categoría del jugador: ${jugador.categoria} </p>
+    <p> Altura del jugador: ${jugador.altura} </p>
+    </div>`;
 
     // Borro toda la info de Article y la sustituyo por la que me interesa
-    Frontend.Article.actualizar("Mostrar un jugador", msj)
-
-    // Actualiza el objeto que guarda los datos mostrados
-    //Personas.almacenaDatos(persona)
+    Frontend.Article.actualizar("Mostrar datos del jugador", msj)
 }
 
 /**
