@@ -277,7 +277,7 @@ Enlace al tablero: https://trello.com/b/DMmJ606U/tablero-pr3
 <img src='imagenes\trello_inicio1.png'>
 
 ### Captura Trello al final del incremento
-<img src='imagenes\'>
+<img src='imagenes\trello_final1.png'>
 
 ### Captura funcionalidad HU 01
 <img src='imagenes\hu_01.png'>
