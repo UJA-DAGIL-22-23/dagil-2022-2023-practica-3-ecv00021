@@ -123,6 +123,15 @@ describe("Plantilla.mostrarAcercaDe: ", function () {
         })
 })
 
+describe("Plantilla.imprimeNombresOrdenados ", function () {
+    it("muestra datos ordenados alfabéticamente",
+        function () {
+            let v = ['Elena', 'Carlos', 'Ana']
+            Plantilla.imprimeNombresOrdenados(v)
+            expect(v[0]).toBe('Ana')
+        })
+})
+
 
 /*
 IMPORTANTE

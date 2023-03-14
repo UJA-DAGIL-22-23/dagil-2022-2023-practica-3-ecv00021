@@ -223,5 +223,30 @@ Plantilla.imprimeNombres = function (vector) {
     Frontend.Article.actualizar("Nombres jugadores:", msj)
 }
 
+/**
+ * Función principal para mostrar los nombres de todos los jugadores odenados alfabéticamente desde el MS y, posteriormente, imprimirla.
+ */
+Plantilla.mostrarNombresOrdenados = function () {
+    Plantilla.recupera(Plantilla.imprimeNombresOrdenados);
+}
+
+/**
+ * Función para mostrar en pantalla los nombres de todos los jugadores ordenados alfabéticamente que se han recuperado de la BBDD.
+ * @param {Vector_de_personas} vector Vector con los datos de las personas a mostrar
+ */
+
+Plantilla.imprimeNombresOrdenados = function (vector) {
+    // console.log(vector) // Para comprobar lo que hay en vector
+
+    vector.sort((a, b) => a.data.nombre.localeCompare(b.data.nombre)); 
+
+    let msj = `<div>`
+    vector.forEach(e => msj += `<p> ${e.data.nombre} </p>`)
+    msj += `</div>`
+
+    // Borro toda la info de Article y la sustituyo por la que me interesa
+    Frontend.Article.actualizar("Nombres jugadores ordenados alfabéticamente:", msj)
+}
+
 
 

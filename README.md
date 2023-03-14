@@ -297,3 +297,24 @@ Enlace al tablero: https://trello.com/b/DMmJ606U/tablero-pr3
 
 ### Captura funcionalidad HU 06
 <img src='imagenes\hu_06.png'>
+
+## Segundo incremento v2_-03-2023
+### HU implementadas
+- 03- Ver un listado solo con los nombres de todos los jugadores/equipos ordenados alfabéticamente.
+- 04- Ver un listado con todos los datos de todos los jugadores/equipos.
+- 07- Ver los datos de un determinado jugador/equipo, cambiando con un solo click para ver los datos del anterior o del siguiente.
+
+### Captura Trello al comienzo del incremento
+<img src='imagenes\trello_inicio2.png'>
+
+### Captura Trello al final del incremento
+<img src='imagenes\'>
+
+### Captura funcionalidad HU 03
+<img src='imagenes\hu_03.png'>
+
+### Captura funcionalidad HU 04
+<img src='imagenes\'>
+
+### Captura funcionalidad HU 07
+<img src='imagenes\'>
