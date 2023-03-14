@@ -267,7 +267,7 @@ Enlace al tablero: https://trello.com/b/DMmJ606U/tablero-pr3
 }
 ```
 
-## Primer incremento v1_09-03-2023
+## Primer incremento v1_14-03-2023
 ### HU implementadas
 - 01- Ver la información del autor/autora de la aplicación al pulsar en el botón “Acerca de”
 - 02- Ver un listado solo con los nombres de todos los jugadores/equipos.
