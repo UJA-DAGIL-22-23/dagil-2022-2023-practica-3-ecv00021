@@ -42,7 +42,8 @@ Enlace al tablero: https://trello.com/b/DMmJ606U/tablero-pr3
     ],
     "numero_campeonatos_ganados": 2,
     "nombre_equipo": "Joventut",
-    "categoria": "femenina"
+    "categoria": "femenina",
+    "altura": 1.85
   }
 }
 ```
@@ -66,7 +67,8 @@ Enlace al tablero: https://trello.com/b/DMmJ606U/tablero-pr3
     ],
     "numero_campeonatos_ganados": 1,
     "nombre_equipo": "Unicaja",
-    "categoria": "masculina"
+    "categoria": "masculina",
+    "altura": 1.95
   }
 }
 ```
@@ -89,7 +91,8 @@ Enlace al tablero: https://trello.com/b/DMmJ606U/tablero-pr3
     ],
     "numero_campeonatos_ganados": 2,
     "nombre_equipo": "Joventut",
-    "categoria": "femenina"
+    "categoria": "femenina",
+    "altura": 1.72
   }
 }
 ```
@@ -114,7 +117,8 @@ Enlace al tablero: https://trello.com/b/DMmJ606U/tablero-pr3
     ],
     "numero_campeonatos_ganados": 3,
     "nombre_equipo": "Unicaja",
-    "categoria": "masculina"
+    "categoria": "masculina",
+    "altura": 1.88
   }
 }
 ```
@@ -138,7 +142,8 @@ Enlace al tablero: https://trello.com/b/DMmJ606U/tablero-pr3
     ],
     "numero_campeonatos_ganados": 1,
     "nombre_equipo": "Joventut",
-    "categoria": "femenina"
+    "categoria": "femenina",
+    "altura": 1.96
   }
 }
 ```
@@ -161,7 +166,8 @@ Enlace al tablero: https://trello.com/b/DMmJ606U/tablero-pr3
     ],
     "numero_campeonatos_ganados": 0,
     "nombre_equipo": "Unicaja",
-    "categoria": "masculina"
+    "categoria": "masculina",
+    "altura": 1.74
   }
 }
 ```
@@ -186,7 +192,8 @@ Enlace al tablero: https://trello.com/b/DMmJ606U/tablero-pr3
     ],
     "numero_campeonatos_ganados": 3,
     "nombre_equipo": "Joventut",
-    "categoria": "femenina"
+    "categoria": "femenina",
+    "altura": 1.87
   }
 }
 ```
@@ -212,7 +219,8 @@ Enlace al tablero: https://trello.com/b/DMmJ606U/tablero-pr3
     ],
     "numero_campeonatos_ganados": 4,
     "nombre_equipo": "Unicaja",
-    "categoria": "masculina"
+    "categoria": "masculina",
+    "altura": 2
   }
 }
 ```
@@ -237,7 +245,8 @@ Enlace al tablero: https://trello.com/b/DMmJ606U/tablero-pr3
     ],
     "numero_campeonatos_ganados": 2,
     "nombre_equipo": "Joventut",
-    "categoria": "femenina"
+    "categoria": "femenina",
+    "altura": 1.93
   }
 }
 ```
@@ -262,7 +271,8 @@ Enlace al tablero: https://trello.com/b/DMmJ606U/tablero-pr3
     ],
     "numero_campeonatos_ganados": 4,
     "nombre_equipo": "Unicaja",
-    "categoria": "masculina"
+    "categoria": "masculina",
+    "altura": 1.69
   }
 }
 ```
