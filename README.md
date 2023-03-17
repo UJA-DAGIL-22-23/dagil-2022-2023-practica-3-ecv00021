@@ -314,7 +314,7 @@ Enlace al tablero: https://trello.com/b/DMmJ606U/tablero-pr3
 <img src='imagenes\hu_03.png'>
 
 ### Captura funcionalidad HU 04
-<img src='imagenes\'>
+<img src='imagenes\hu_04.png'>
 
 ### Captura funcionalidad HU 07
 <img src='imagenes\'>
