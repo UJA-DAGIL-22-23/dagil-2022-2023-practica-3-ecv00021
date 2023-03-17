@@ -167,7 +167,7 @@ Plantilla.imprimeJugador = function (jugador) {
 
 /**
  * Función principal para mostrar los datos de un jugador desde el MS y, posteriormente, imprimirla.
- * @param {String} idJugador Identificador dej jugador a mostrar
+ * @param {String} idJugador Identificador del jugador a mostrar
  */
 Plantilla.mostrarJugador = function (idJugador) {
     this.recuperaJugador(idJugador, this.imprimeJugador);
@@ -280,3 +280,39 @@ Plantilla.imprimeDatos = function (vector) {
     Frontend.Article.actualizar("Datos jugadores:", msj)
 }
 
+/**
+ * Función principal para mostrar los datos de un jugador, además del siguiente o anterior.
+ * @param {String} idJugador Identificador del jugador a mostrar
+ */
+Plantilla.siguienteAnterior = function (idJugador) {
+    this.recuperaJugador(idJugador, this.imprimeJugadorSigAnt);
+}
+
+/**
+ * Función para mostrar en pantalla los detalles de un juagador, además del siguiente o anterior.
+ * @param {Plantilla} jugador Datos del jugador a mostrar
+ */
+
+Plantilla.imprimeJugadorSigAnt = function (jugador) {
+    // console.log(persona) // Para comprobar lo que hay en vector
+    //let msj = Personas.personaComoFormulario(persona);
+    //jugador=jugador.data
+    let msj = `<div> 
+    <p> Nombre del jugador: ${jugador.nombre} </p>
+    <p> Apellidos del jugador: ${jugador.apellidos} </p>
+    <p> Fecha de nacimiento del jugador: ${jugador.fechaNacimiento.dia}/${jugador.fechaNacimiento.mes}/${jugador.fechaNacimiento.anio} </p>
+    <p> País del jugador: ${jugador.pais} </p>
+    <p> Años competición del jugador: ${jugador.aniosCompeticion} </p>
+    <p> Número de campeonatos ganados del jugador: ${jugador.numero_campeonatos_ganados} </p>
+    <p> Nombre del equipo del jugador: ${jugador.nombre_equipo} </p>
+    <p> Categoría del jugador: ${jugador.categoria} </p>
+    <p> Altura del jugador: ${jugador.altura} </p>
+    <a href="javascript:Plantilla.mostrarJugador('358542277269782732')" class="opcion-principal"
+        title="Muestra todos los datos de un jugador">Jugador anterior</a>
+    <a href="javascript:Plantilla.mostrarJugador('358542397918937292')" class="opcion-principal"
+        title="Muestra todos los datos de un jugador">Jugador siguiente</a>
+    </div>`;
+
+    // Borro toda la info de Article y la sustituyo por la que me interesa
+    Frontend.Article.actualizar("Mostrar datos del jugador", msj)
+}

@@ -184,6 +184,14 @@ describe("Plantilla.imprimeDatos: ", function () {
         })
 })
 */
+describe("Plantilla.imprimeJugadorSigAnt: ", function () {
+    it("muestra los datos de un jugador",
+        function () {
+            Plantilla.imprimeJugadorSigAnt(datosPrueba)
+            expect(elementoTitulo.innerHTML).toBe('Mostrar datos del jugador')
+            expect(elementoContenido.innerHTML.search(datosPrueba.nombre) >= 0).toBeTrue()
+        })
+})
 
 /*
 IMPORTANTE
