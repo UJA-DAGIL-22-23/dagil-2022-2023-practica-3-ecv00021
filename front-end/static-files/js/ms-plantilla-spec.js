@@ -21,7 +21,7 @@ const datosDescargadosPrueba = {
 }
 
 const datosPrueba = {
-    nombre: "ksdnlsk",
+    nombre: "nombre",
     apellidos: "",
     fechaNacimiento: "",
     pais: "",
@@ -142,6 +142,9 @@ Las siguientes funciones no podemos probarlas ya que se encargan de probar las c
 -mostrarJugador()
 -recupera()
 -mostrarNombresJugadores()
+-mostrarNombresOrdenados()
+-mostrarDatosJugadores()
+
 */
 
 describe("Plantilla.imprimeJugador: ", function () {
@@ -149,17 +152,18 @@ describe("Plantilla.imprimeJugador: ", function () {
         function () {
             Plantilla.imprimeJugador(datosPrueba)
             expect(elementoTitulo.innerHTML).toBe('Mostrar datos del jugador')
-            //expect(elementoContenido.innerHTML.search(datosPrueba.nombre) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(datosPrueba.nombre) >= 0).toBeTrue()
         })
 })
 /*
 describe("Plantilla.imprimeNombres: ", function () {
     it("muestra los nombres de un jugador",
         function () {
-            Plantilla.imprimeNombres(datosPrueba)
+            Plantilla.imprimeNombres([datosPrueba, datosPrueba])
             expect(elementoContenido.innerHTML.search(datosPrueba.nombre) >= 0).toBeTrue()
         })
 })
+
 
 describe("Plantilla.imprimeNombresOrdenados: ", function () {
     it("muestra datos ordenados alfabéticamente",
@@ -168,8 +172,18 @@ describe("Plantilla.imprimeNombresOrdenados: ", function () {
             Plantilla.imprimeNombresOrdenados(v)
             expect(v[0]).toBe('Ana')
         })
-})*/
+})
 
+
+describe("Plantilla.imprimeDatos: ", function () {
+    it("muestra datos jugadores",
+        function () {
+            let v = [datosPrueba, datosPrueba]
+            Plantilla.imprimeDatos(v)
+            expect(v[0].nombre).toBe('nombre')
+        })
+})
+*/
 
 /*
 IMPORTANTE

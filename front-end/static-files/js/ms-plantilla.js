@@ -132,7 +132,7 @@ Plantilla.recuperaJugador = async function (idJugador, callBackFn) {
         const response = await fetch(url);
         if (response) {
             const persona = await response.json()
-            callBackFn(persona)
+            callBackFn(persona.data)
         }
     } catch (error) {
         alert("Error: No se han podido acceder al API Gateway")
@@ -148,7 +148,7 @@ Plantilla.recuperaJugador = async function (idJugador, callBackFn) {
 Plantilla.imprimeJugador = function (jugador) {
     // console.log(persona) // Para comprobar lo que hay en vector
     //let msj = Personas.personaComoFormulario(persona);
-    jugador=jugador.data
+    //jugador=jugador.data
     let msj = `<div> 
     <p> Nombre del jugador: ${jugador.nombre} </p>
     <p> Apellidos del jugador: ${jugador.apellidos} </p>
