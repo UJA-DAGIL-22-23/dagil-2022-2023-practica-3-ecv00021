@@ -20,17 +20,52 @@ const datosDescargadosPrueba = {
     fecha: "00/00/0000"
 }
 
-const datosPrueba = {
-    nombre: "nombre",
-    apellidos: "",
-    fechaNacimiento: "",
-    pais: "",
-    aniosCompeticion: "",
-    numero_campeonatos_ganados: "",
-    nombre_equipo: "",
-    categoria: "",
-    altura: ""
+// Preparo los datos
+let d = {
+    datos_personas: [
+        {
+            ref: {
+                "@ref": {
+                    id: "ref persona 1"
+                }
+            },
+            data: {
+                "nombre": "Elena",
+                "apellidos": "Carmona Vallecillo",
+                "fechaNacimiento": {
+                "dia": 6,
+                "mes": 10,
+                "anio": 2002
+                },
+                "pais": "España",
+                "aniosCompeticion": [
+                2017,
+                2018,
+                2020,
+                2022
+                ],
+                "numero_campeonatos_ganados": 2,
+                "nombre_equipo": "Joventut",
+                "categoria": "femenina",
+                "altura": 1.85
+            }
+        },
+        {
+            ref: {
+                "@ref": {
+                    id: "ref persona 2"
+                }
+            },
+            data: {
+                nombre: "Nombre persona 2",
+                apellidos: "Apellidos persona 2"
+            }
+        },
+
+    ]
 }
+
+let p = { data: d }
 
 
 // Función para esperar y dar tiempo a que responda el microservicio
@@ -150,9 +185,20 @@ Las siguientes funciones no podemos probarlas ya que se encargan de probar las c
 describe("Plantilla.imprimeJugador: ", function () {
     it("muestra los datos de un jugador",
         function () {
-            Plantilla.imprimeJugador(datosPrueba)
+            let persona = d.datos_personas[0]
+            Plantilla.imprimeJugador(persona)
             expect(elementoTitulo.innerHTML).toBe('Mostrar datos del jugador')
-            expect(elementoContenido.innerHTML.search(datosPrueba.nombre) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.includes(persona.data.nombre)).toBeTrue()
+            expect(elementoContenido.innerHTML.includes(persona.data.apellidos)).toBeTrue()
+            expect(elementoContenido.innerHTML.includes(persona.data.fechaNacimiento.dia)).toBeTrue()
+            expect(elementoContenido.innerHTML.includes(persona.data.fechaNacimiento.mes)).toBeTrue()
+            expect(elementoContenido.innerHTML.includes(persona.data.fechaNacimiento.anio)).toBeTrue()
+            expect(elementoContenido.innerHTML.includes(persona.data.pais)).toBeTrue()
+            expect(elementoContenido.innerHTML.includes(persona.data.aniosCompeticion)).toBeTrue()
+            expect(elementoContenido.innerHTML.includes(persona.data.numero_campeonatos_ganados)).toBeTrue()
+            expect(elementoContenido.innerHTML.includes(persona.data.nombre_equipo)).toBeTrue()
+            expect(elementoContenido.innerHTML.includes(persona.data.categoria)).toBeTrue()
+            expect(elementoContenido.innerHTML.includes(persona.data.altura)).toBeTrue()
         })
 })
 /*
@@ -187,9 +233,21 @@ describe("Plantilla.imprimeDatos: ", function () {
 describe("Plantilla.imprimeJugadorSigAnt: ", function () {
     it("muestra los datos de un jugador",
         function () {
-            Plantilla.imprimeJugadorSigAnt(datosPrueba)
+            let persona = d.datos_personas[0]
+            Plantilla.imprimeJugadorSigAnt(persona)
             expect(elementoTitulo.innerHTML).toBe('Mostrar datos del jugador')
-            expect(elementoContenido.innerHTML.search(datosPrueba.nombre) >= 0).toBeTrue()
+            expect(elementoTitulo.innerHTML).toBe('Mostrar datos del jugador')
+            expect(elementoContenido.innerHTML.includes(persona.data.nombre)).toBeTrue()
+            expect(elementoContenido.innerHTML.includes(persona.data.apellidos)).toBeTrue()
+            expect(elementoContenido.innerHTML.includes(persona.data.fechaNacimiento.dia)).toBeTrue()
+            expect(elementoContenido.innerHTML.includes(persona.data.fechaNacimiento.mes)).toBeTrue()
+            expect(elementoContenido.innerHTML.includes(persona.data.fechaNacimiento.anio)).toBeTrue()
+            expect(elementoContenido.innerHTML.includes(persona.data.pais)).toBeTrue()
+            expect(elementoContenido.innerHTML.includes(persona.data.aniosCompeticion)).toBeTrue()
+            expect(elementoContenido.innerHTML.includes(persona.data.numero_campeonatos_ganados)).toBeTrue()
+            expect(elementoContenido.innerHTML.includes(persona.data.nombre_equipo)).toBeTrue()
+            expect(elementoContenido.innerHTML.includes(persona.data.categoria)).toBeTrue()
+            expect(elementoContenido.innerHTML.includes(persona.data.altura)).toBeTrue()
         })
 })
 
