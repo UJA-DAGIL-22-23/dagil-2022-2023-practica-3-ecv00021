@@ -57,8 +57,23 @@ let d = {
                 }
             },
             data: {
-                nombre: "Nombre persona 2",
-                apellidos: "Apellidos persona 2"
+                "nombre": "Fernando",
+                "apellidos": "Pérez Sánchez",
+                "fechaNacimiento": {
+                "dia": 25,
+                "mes": 3,
+                "anio": 1969
+                },
+                "pais": "España",
+                "aniosCompeticion": [
+                1980,
+                1985,
+                1990
+                ],
+                "numero_campeonatos_ganados": 1,
+                "nombre_equipo": "Unicaja",
+                "categoria": "masculina",
+                "altura": 1.95
             }
         },
 
@@ -179,6 +194,7 @@ Las siguientes funciones no podemos probarlas ya que se encargan de probar las c
 -mostrarNombresJugadores()
 -mostrarNombresOrdenados()
 -mostrarDatosJugadores()
+-siguienteAnterior()
 
 */
 
@@ -201,12 +217,15 @@ describe("Plantilla.imprimeJugador: ", function () {
             expect(elementoContenido.innerHTML.includes(persona.data.altura)).toBeTrue()
         })
 })
-/*
+
 describe("Plantilla.imprimeNombres: ", function () {
     it("muestra los nombres de un jugador",
         function () {
-            Plantilla.imprimeNombres([datosPrueba, datosPrueba])
-            expect(elementoContenido.innerHTML.search(datosPrueba.nombre) >= 0).toBeTrue()
+            let personas = d.datos_personas
+            Plantilla.imprimeNombres(personas)
+            for (let i = 0; i < d.datos_personas.length; ++i) {
+                expect(elementoContenido.innerHTML.includes(personas[i].data.nombre)).toBeTrue()
+            }
         })
 })
 
@@ -214,28 +233,40 @@ describe("Plantilla.imprimeNombres: ", function () {
 describe("Plantilla.imprimeNombresOrdenados: ", function () {
     it("muestra datos ordenados alfabéticamente",
         function () {
-            let v = ['Elena', 'Carlos', 'Ana']
-            Plantilla.imprimeNombresOrdenados(v)
-            expect(v[0]).toBe('Ana')
+            let personas = d.datos_personas
+            Plantilla.imprimeNombres(personas)
+            for (let i = 0; i < d.datos_personas.length; ++i) {
+                expect(elementoContenido.innerHTML.includes(personas[i].data.nombre)).toBeTrue()
+            }
         })
 })
-
 
 describe("Plantilla.imprimeDatos: ", function () {
     it("muestra datos jugadores",
         function () {
-            let v = [datosPrueba, datosPrueba]
-            Plantilla.imprimeDatos(v)
-            expect(v[0].nombre).toBe('nombre')
+            let personas = d.datos_personas
+            Plantilla.imprimeDatos(personas)
+            for (let i = 0; i < d.datos_personas.length; ++i) {
+                expect(elementoContenido.innerHTML.includes(personas[i].data.nombre)).toBeTrue()
+                expect(elementoContenido.innerHTML.includes(personas[i].data.apellidos)).toBeTrue()
+                expect(elementoContenido.innerHTML.includes(personas[i].data.fechaNacimiento.dia)).toBeTrue()
+                expect(elementoContenido.innerHTML.includes(personas[i].data.fechaNacimiento.mes)).toBeTrue()
+                expect(elementoContenido.innerHTML.includes(personas[i].data.fechaNacimiento.anio)).toBeTrue()
+                expect(elementoContenido.innerHTML.includes(personas[i].data.pais)).toBeTrue()
+                expect(elementoContenido.innerHTML.includes(personas[i].data.aniosCompeticion)).toBeTrue()
+                expect(elementoContenido.innerHTML.includes(personas[i].data.numero_campeonatos_ganados)).toBeTrue()
+                expect(elementoContenido.innerHTML.includes(personas[i].data.nombre_equipo)).toBeTrue()
+                expect(elementoContenido.innerHTML.includes(personas[i].data.categoria)).toBeTrue()
+                expect(elementoContenido.innerHTML.includes(personas[i].data.altura)).toBeTrue()
+            }
         })
 })
-*/
+
 describe("Plantilla.imprimeJugadorSigAnt: ", function () {
     it("muestra los datos de un jugador",
         function () {
             let persona = d.datos_personas[0]
             Plantilla.imprimeJugadorSigAnt(persona)
-            expect(elementoTitulo.innerHTML).toBe('Mostrar datos del jugador')
             expect(elementoTitulo.innerHTML).toBe('Mostrar datos del jugador')
             expect(elementoContenido.innerHTML.includes(persona.data.nombre)).toBeTrue()
             expect(elementoContenido.innerHTML.includes(persona.data.apellidos)).toBeTrue()
