@@ -316,3 +316,52 @@ Plantilla.imprimeJugadorSigAnt = function (jugador) {
     // Borro toda la info de Article y la sustituyo por la que me interesa
     Frontend.Article.actualizar("Mostrar datos del jugador", msj)
 }
+
+
+/**
+ * Función para mostrar los datos de todos los jugadores cuyo nombre contenga el texto introducido
+ * @param {Vector_de_personas} vector Vector con los datos de las personas a mostrar
+ */
+
+Plantilla.incluyeNombre = function (vector) {
+    var texto = document.getElementById("id_texto").value;
+    let msj = "";
+
+    for(var i=0; i < vector.length; i++){
+        let jugador=vector[i].data;
+        var nom = jugador.nombre;
+        if(nom.includes(texto)){
+            msj += `<div> 
+            <h1> Jugador </h1>
+            <p> Nombre del jugador: ${jugador.nombre} </p>
+            <p> Apellidos del jugador: ${jugador.apellidos} </p>
+            <p> Fecha de nacimiento del jugador: ${jugador.fechaNacimiento.dia}/${jugador.fechaNacimiento.mes}/${jugador.fechaNacimiento.anio} </p>
+            <p> País del jugador: ${jugador.pais} </p>
+            <p> Años competición del jugador: ${jugador.aniosCompeticion} </p>
+            <p> Número de campeonatos ganados del jugador: ${jugador.numero_campeonatos_ganados} </p>
+            <p> Nombre del equipo del jugador: ${jugador.nombre_equipo} </p>
+            <p> Categoría del jugador: ${jugador.categoria} </p>
+            <p> Altura del jugador: ${jugador.altura} </p>
+            </div>`;
+        }
+    }
+
+    // Borro toda la info de Article y la sustituyo por la que me interesa
+    Frontend.Article.actualizar("Jugadores cuyo nombre contiene '" + texto + "'", msj)
+
+}
+
+/**
+ * Función para introducir el texto coorespondiente para buscar los jugadores cuyo nombre contienen dicho texto.
+ */
+
+Plantilla.buscarNombre = function () {
+    let msj = `<div>
+    <p> Buscar jugadores cuyo nombre incluye: </p>
+    <input type="text" id="id_texto">
+    <button onclick="javascript:Plantilla.recupera(Plantilla.incluyeNombre);">Buscar</button>
+    </div>`;
+
+    Frontend.Article.actualizar("Buscar jugadores por nombre", msj)
+}
+
