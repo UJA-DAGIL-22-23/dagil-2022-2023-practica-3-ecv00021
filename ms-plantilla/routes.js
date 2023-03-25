@@ -69,6 +69,17 @@ router.get("/getTodas", async (req, res) => {
 });
 
 /**
+ * Modifica nombre de la persona con el id pasado
+ */
+router.post("/setNombre", async (req, res) => {
+    try {
+        await callbacks.setNombre(req, res)
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+/**
  * Modifica datos de la persona con el id pasado
  */
 router.post("/setTodo", async (req, res) => {

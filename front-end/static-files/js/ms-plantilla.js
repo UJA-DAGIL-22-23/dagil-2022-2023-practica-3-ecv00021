@@ -364,19 +364,30 @@ Plantilla.modificarNombreJugador = function (idJugador) {
  * @param {Plantilla} jugador Datos del jugador a modificar
  */
 Plantilla.modificarNombre = function (jugador) {
-    let msj = `<div> 
+    let msj = `<form method='post' action=''>
+    <div> 
     <label for="nombre">Nombre del jugador:</label>
-    <input type="text" id="id_nombre" placeholder=${jugador.data.nombre}>
-    <p> Apellidos del jugador: ${jugador.data.apellidos} </p>
-    <p> Fecha de nacimiento del jugador: ${jugador.data.fechaNacimiento.dia}/${jugador.data.fechaNacimiento.mes}/${jugador.data.fechaNacimiento.anio} </p>
-    <p> País del jugador: ${jugador.data.pais} </p>
-    <p> Años competición del jugador: ${jugador.data.aniosCompeticion} </p>
-    <p> Número de campeonatos ganados del jugador: ${jugador.data.numero_campeonatos_ganados} </p>
-    <p> Nombre del equipo del jugador: ${jugador.data.nombre_equipo} </p>
-    <p> Categoría del jugador: ${jugador.data.categoria} </p>
-    <p> Altura del jugador: ${jugador.data.altura} </p>
-    <button onclick="javascript:Plantilla.recuperaJugador('358542586888061132', Plantilla.guardar);">Guardar</button>
-    </div>`;
+    <input type="text" id="id_nombre" value="${jugador.data.nombre}" name="nombre_persona"/><br>
+    <label for="apellidos">Apellidos del jugador:</label>
+    <input type="text" disabled id="id_apellidos" value="${jugador.data.apellidos}" name="apellidos_persona"/><br>
+    <label for="fecha">Fecha de nacimiento del jugador:</label>
+    <input type="text" disabled id="id_fecha" value="${jugador.data.fechaNacimiento.dia}/${jugador.data.fechaNacimiento.mes}/${jugador.data.fechaNacimiento.anio}" name="fecha_persona"/><br>
+    <label for="pais">País del jugador:</label>
+    <input type="text" disabled id="id_pais" value="${jugador.data.pais}" name="pais_persona"/><br>
+    <label for="anios">Años competición del jugador:</label>
+    <input type="text" disabled id="id_anios" value="${jugador.data.aniosCompeticion}" name="anios_competicion_persona"/><br>
+    <label for="campeonatos">Campeonatos ganados del jugador:</label>
+    <input type="text" disabled id="id_campeonatos" value="${jugador.data.numero_campeonatos_ganados}" name="num_campeonatos_persona"/><br>
+    <label for="equipo">Nombre equipo del jugador:</label>
+    <input type="text" disabled id="id_equipo" value="${jugador.data.nombre_equipo}" name="nombre_equipo_persona"/><br>
+    <label for="categoria">Categoría del jugador:</label>
+    <input type="text" disabled id="id_categoria" value="${jugador.data.categoria}" name="categoria_persona"/><br>
+    <label for="altura">Altura del jugador:</label>
+    <input type="text" disabled id="id_altura" value="${jugador.data.altura}" name="altura_persona"/><br>
+    <br>
+    <div><a href="javascript:Plantilla.guardar()" class="opcion-principal">Guardar</a></div>
+    </div>
+    </form>`;
 
     // Borro toda la info de Article y la sustituyo por la que me interesa
     Frontend.Article.actualizar("Modificar nombre jugador", msj)
@@ -386,9 +397,9 @@ Plantilla.modificarNombre = function (jugador) {
  * Función para guardar los nuevos datos de una persona
  * @param {Plantilla} jugador Datos del jugador a guardar
  */
-Plantilla.guardar = async function (jugador) {
+Plantilla.guardar = async function () {
     try {
-        let url = Frontend.API_GATEWAY + "/plantilla/setTodo/"
+        let url = Frontend.API_GATEWAY + "/plantilla/setNombre/"
         let id_persona = '358542586888061132'
         const response = await fetch(url, {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -402,15 +413,15 @@ Plantilla.guardar = async function (jugador) {
             referrer: 'no-referrer', // no-referrer, *client
             body: JSON.stringify({
                 "id_persona": id_persona,
-                "nombre_persona": jugador.nombre,
-                "apellidos_persona": jugador.apellidos,
-                "fecha_persona": jugador.fechaNacimiento,
-                "pais_persona": jugador.pais,
-                "anios_competicion_persona": jugador.aniosCompeticion,
-                "num_campeonatos_persona": jugador.numero_campeonatos_ganados,
-                "nombre_equipo_persona": jugador.nombre_equipo,
-                "categoria_persona": jugador.categoria,
-                "altura_persona": jugador.altura
+                "nombre_persona": document.getElementById("id_nombre").value,
+                "apellidos_persona": document.getElementById("id_apellidos").value,
+                "fecha_persona": document.getElementById("id_fecha").value,
+                "pais_persona": document.getElementById("id_pais").value,
+                "anios_competicion_persona": document.getElementById("id_anios").value,
+                "num_campeonatos_persona": document.getElementById("id_campeonatos").value,
+                "nombre_equipo_persona": document.getElementById("id_equipo").value,
+                "categoria_persona": document.getElementById("id_categoria").value,
+                "altura_persona": document.getElementById("id_altura").value
             }), // body data type must match "Content-Type" header
         })
         /*
