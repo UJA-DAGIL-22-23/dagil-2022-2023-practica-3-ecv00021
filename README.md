@@ -318,3 +318,24 @@ Enlace al tablero: https://trello.com/b/DMmJ606U/tablero-pr3
 
 ### Captura funcionalidad HU 07
 <img src='imagenes\hu_07.png'>
+
+## Tercer incremento v3_-03-2023
+### HU implementadas
+- 08- Ver un listado de todos los datos de jugadores/equipos cuyo nombre cumple con un criterio de búsqueda indicado por el usuario.
+- 12- Modificar el nombre de un jugador/equipo.
+- 13- Modificar varios de los datos a la vez de un jugador/equipo. Se deberán poder modificar al menos 3 campos además del nombre.
+
+### Captura Trello al comienzo del incremento
+<img src='imagenes\trello_inicio3.png'>
+
+### Captura Trello al final del incremento
+<img src='imagenes\'>
+
+### Captura funcionalidad HU 08
+<img src='imagenes\'>
+
+### Captura funcionalidad HU 12
+<img src='imagenes\'>
+
+### Captura funcionalidad HU 13
+<img src='imagenes\'>
