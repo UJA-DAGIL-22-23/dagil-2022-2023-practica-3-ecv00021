@@ -18,20 +18,6 @@ Plantilla.datosDescargadosNulos = {
     fecha: ""
 }
 
-/// Nombre de los campos del formulario para editar una persona
-Plantilla.form = {
-    nombre: "form-persona-nombre",
-    apellidos: "form-persona-apellidos",
-    fechaNacimiento: "form-persona-fecha",
-    pais: "form-persona-pais",
-    aniosCompeticion: "form-persona-anios",
-    numero_campeonatos_ganados: "form-persona-campeonatos",
-    nombre_equipo: "form-persona-equipo",
-    categoria: "form-persona-categoria",
-    altura: "form-persona-altura",
-}
-
-
 /**
  * Función que descarga la info MS Plantilla al llamar a una de sus rutas
  * @param {string} ruta Ruta a descargar
@@ -365,3 +351,78 @@ Plantilla.buscarNombre = function () {
     Frontend.Article.actualizar("Buscar jugadores por nombre", msj)
 }
 
+/**
+ * Función principal para modificar el nombre de un jugador
+ * @param {String} idJugador Identificador del jugador a modificar
+ */
+Plantilla.modificarNombreJugador = function (idJugador) {
+    this.recuperaJugador(idJugador, this.modificarNombre);
+}
+
+/**
+ * Función principal para modificar el nombre de un jugador
+ * @param {Plantilla} jugador Datos del jugador a modificar
+ */
+Plantilla.modificarNombre = function (jugador) {
+    let msj = `<div> 
+    <label for="nombre">Nombre del jugador:</label>
+    <input type="text" id="id_nombre" placeholder=${jugador.data.nombre}>
+    <p> Apellidos del jugador: ${jugador.data.apellidos} </p>
+    <p> Fecha de nacimiento del jugador: ${jugador.data.fechaNacimiento.dia}/${jugador.data.fechaNacimiento.mes}/${jugador.data.fechaNacimiento.anio} </p>
+    <p> País del jugador: ${jugador.data.pais} </p>
+    <p> Años competición del jugador: ${jugador.data.aniosCompeticion} </p>
+    <p> Número de campeonatos ganados del jugador: ${jugador.data.numero_campeonatos_ganados} </p>
+    <p> Nombre del equipo del jugador: ${jugador.data.nombre_equipo} </p>
+    <p> Categoría del jugador: ${jugador.data.categoria} </p>
+    <p> Altura del jugador: ${jugador.data.altura} </p>
+    <button onclick="javascript:Plantilla.recuperaJugador('358542586888061132', Plantilla.guardar);">Guardar</button>
+    </div>`;
+
+    // Borro toda la info de Article y la sustituyo por la que me interesa
+    Frontend.Article.actualizar("Modificar nombre jugador", msj)
+}
+
+/**
+ * Función para guardar los nuevos datos de una persona
+ * @param {Plantilla} jugador Datos del jugador a guardar
+ */
+Plantilla.guardar = async function (jugador) {
+    try {
+        let url = Frontend.API_GATEWAY + "/plantilla/setTodo/"
+        let id_persona = '358542586888061132'
+        const response = await fetch(url, {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            mode: 'no-cors', // no-cors, cors, *same-origin
+            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: 'omit', // include, *same-origin, omit
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            redirect: 'follow', // manual, *follow, error
+            referrer: 'no-referrer', // no-referrer, *client
+            body: JSON.stringify({
+                "id_persona": id_persona,
+                "nombre_persona": jugador.nombre,
+                "apellidos_persona": jugador.apellidos,
+                "fecha_persona": jugador.fechaNacimiento,
+                "pais_persona": jugador.pais,
+                "anios_competicion_persona": jugador.aniosCompeticion,
+                "num_campeonatos_persona": jugador.numero_campeonatos_ganados,
+                "nombre_equipo_persona": jugador.nombre_equipo,
+                "categoria_persona": jugador.categoria,
+                "altura_persona": jugador.altura
+            }), // body data type must match "Content-Type" header
+        })
+        /*
+        Error: No procesa bien la respuesta devuelta
+        if (response) {
+            const persona = await response.json()
+            alert(persona)
+        }
+        */
+        Plantilla.mostrarJugador(id_persona)
+    } catch (error) {
+        alert("Error: No se han podido acceder al API Gateway " + error)
+        //console.error(error)
+    }
+}
