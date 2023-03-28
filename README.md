@@ -336,7 +336,11 @@ Enlace al tablero: https://trello.com/b/DMmJ606U/tablero-pr3
 <img src='imagenes\hu_08_2.png'>
 
 ### Captura funcionalidad HU 12
-<img src='imagenes\'>
+<img src='imagenes\hu_12_1.png'>
+<img src='imagenes\hu_12_2.png'>
+<img src='imagenes\hu_12_3.png'>
+<img src='imagenes\hu_12_4.png'>
+<img src='imagenes\hu_12_5.png'>
 
 ### Captura funcionalidad HU 13
 <img src='imagenes\'>
