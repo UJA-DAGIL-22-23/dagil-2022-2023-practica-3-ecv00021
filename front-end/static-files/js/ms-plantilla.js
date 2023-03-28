@@ -424,13 +424,6 @@ Plantilla.guardar = async function () {
                 "altura_persona": document.getElementById("id_altura").value
             }), // body data type must match "Content-Type" header
         })
-        /*
-        Error: No procesa bien la respuesta devuelta
-        if (response) {
-            const persona = await response.json()
-            alert(persona)
-        }
-        */
         Plantilla.mostrarJugador(id_persona)
     } catch (error) {
         alert("Error: No se han podido acceder al API Gateway " + error)

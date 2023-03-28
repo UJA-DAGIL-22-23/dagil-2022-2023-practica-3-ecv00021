@@ -195,11 +195,13 @@ Las siguientes funciones no podemos probarlas ya que se encargan de probar las c
 -mostrarNombresOrdenados()
 -mostrarDatosJugadores()
 -siguienteAnterior()
+-guardar()
 
 Las siguientes funciones no puedo probarlas porque dependen del texto introducido por el usuario:
 -incluyeNombre()
 -buscarNombre()
-
+-modificarNombreJugador()
+-modificarNombre()
 */
 
 describe("Plantilla.imprimeJugador: ", function () {

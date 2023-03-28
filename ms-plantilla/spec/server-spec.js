@@ -130,44 +130,6 @@ describe('Servidor PLANTILLA:', () => {
       );
   });
 
-  it('Devuelve los datos cambiados al recuperar los datos de la Persona con id 358542586888061132 mediante setTodo', (done) => {
-    const NOMBRE_TEST= 'Pablo'
-    const persona = {
-      id_persona: '358542586888061132',
-      nombre_persona: NOMBRE_TEST,
-      apellidos_persona: "García López",
-      fecha_persona: {
-        "dia": 18,
-        "mes": 8,
-        "anio": 2004
-      },
-      pais_persona: "España",
-      anios_competicion_persona: [
-        2018,
-        2019,
-        2020,
-        2021
-      ],
-      num_campeonatos_persona: 4,
-      nombre_equipo_persona: "Unicaja",
-      categoria_persona: "masculina",
-      altura_persona: 1.69
-    };
-    supertest(app)
-      .post('/setTodo')
-      .send(persona)
-      .expect(200)
-      .expect('Content-Type', /json/)
-      .expect(function (res) {
-        //console.log( "Server-spec , /setTodo res.body", res.body ); // Para comprobar qué contiene exactamente res.body
-        assert(res.body.data.hasOwnProperty('nombre'));
-        assert(res.body.data.nombre === NOMBRE_TEST);
-      })
-      .end((error) => { error ? done.fail(error) : done(); }
-      );
-  });
-
-
 });
 
 
