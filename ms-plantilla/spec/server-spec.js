@@ -134,7 +134,7 @@ describe('Servidor PLANTILLA:', () => {
     const NOMBRE_TEST= 'Olga'
     const APELLIDOS_TEST= 'Fernández Gómez'
     const persona = {
-      id_persona: '358542586888061132',
+      id_persona: '358542112682148045',
       nombre_persona: NOMBRE_TEST,
       apellidos_persona: APELLIDOS_TEST,
       fecha_persona: {

@@ -104,7 +104,7 @@ const CB_MODEL_SELECTS = {
     },
 
     /**
-    * Método para ocambiar el nombre de una persona
+    * Método para cambiar el nombre de una persona
     * @param {*} req Objeto con los parámetros que se han pasado en la llamada a esta URL 
     * @param {*} res Objeto Response con las respuesta que se va a dar a la petición recibida
     */
@@ -142,7 +142,7 @@ const CB_MODEL_SELECTS = {
     },
 
     /**
-    * Método para ocambiar los datos (nombre, apellidos, país y altura) de una persona
+    * Método para cambiar todos los datos menos la fecha de nacimiento y la categoría de una persona
     * @param {*} req Objeto con los parámetros que se han pasado en la llamada a esta URL 
     * @param {*} res Objeto Response con las respuesta que se va a dar a la petición recibida
     */
@@ -159,12 +159,10 @@ const CB_MODEL_SELECTS = {
                         data: {
                             nombre: data.nombre_persona,
                             apellidos: data.apellidos_persona,
-                            fechaNacimiento: data.fecha_persona,
                             pais: data.pais_persona,
                             aniosCompeticion: data.anios_competicion_persona,
                             numero_campeonatos_ganados: data.num_campeonatos_persona,
                             nombre_equipo: data.nombre_equipo_persona,
-                            categoria: data.categoria_persona,
                             altura: data.altura_persona,            
                         },
                     },
