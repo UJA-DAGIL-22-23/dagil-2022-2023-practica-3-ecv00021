@@ -319,7 +319,7 @@ Enlace al tablero: https://trello.com/b/DMmJ606U/tablero-pr3
 ### Captura funcionalidad HU 07
 <img src='imagenes\hu_07.png'>
 
-## Tercer incremento v3_-03-2023
+## Tercer incremento v3_28-03-2023
 ### HU implementadas
 - 08- Ver un listado de todos los datos de jugadores/equipos cuyo nombre cumple con un criterio de búsqueda indicado por el usuario.
 - 12- Modificar el nombre de un jugador/equipo.
@@ -329,7 +329,7 @@ Enlace al tablero: https://trello.com/b/DMmJ606U/tablero-pr3
 <img src='imagenes\trello_inicio3.png'>
 
 ### Captura Trello al final del incremento
-<img src='imagenes\'>
+<img src='imagenes\trello_final3.png'>
 
 ### Captura funcionalidad HU 08
 <img src='imagenes\hu_08_1.png'>
