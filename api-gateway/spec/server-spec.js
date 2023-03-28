@@ -110,6 +110,44 @@ describe('BBDD Personas', () => {
       );
   });
 
+  it('Devuelve los datos cambiados al recuperar los datos de la Persona con id 358542112682148045 mediante setTodo', (done) => {
+    const NOMBRE_TEST= 'Olga'
+    const APELLIDOS_TEST= 'Fernández Gómez'
+    const persona = {
+      id_persona: '358542586888061132',
+      nombre_persona: NOMBRE_TEST,
+      apellidos_persona: APELLIDOS_TEST,
+      fecha_persona: {
+        "dia": 15,
+        "mes": 4,
+        "anio": 2004
+      },
+      pais_persona: "España",
+      anios_competicion_persona: [
+        2019,
+        2021
+      ],
+      num_campeonatos_persona: 2,
+      nombre_equipo_persona: "Joventut",
+      categoria_persona: "femenina",
+      altura_persona: 1.72
+    };
+    supertest(app)
+      .post('/plantilla/setTodo')
+      .send(persona)
+      .expect(200)
+      .expect('Content-Type', /json/)
+      .expect(function (res) {
+        //console.log( "Server-spec , /setTodo res.body", res.body ); // Para comprobar qué contiene exactamente res.body
+        assert(res.body.data.hasOwnProperty('nombre'));
+        assert(res.body.data.nombre === NOMBRE_TEST);
+        assert(res.body.data.hasOwnProperty('apellidos'));
+        assert(res.body.data.apellidos === APELLIDOS_TEST);
+      })
+      .end((error) => { error ? done.fail(error) : done(); }
+      );
+  });
+
 });
 
 
