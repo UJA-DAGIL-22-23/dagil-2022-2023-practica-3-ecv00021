@@ -196,12 +196,15 @@ Las siguientes funciones no podemos probarlas ya que se encargan de probar las c
 -mostrarDatosJugadores()
 -siguienteAnterior()
 -guardar()
+-guardarJugador()
 
 Las siguientes funciones no puedo probarlas porque dependen del texto introducido por el usuario:
 -incluyeNombre()
 -buscarNombre()
 -modificarNombreJugador()
 -modificarNombre()
+-modificarJugador()
+-modificar()
 */
 
 describe("Plantilla.imprimeJugador: ", function () {
