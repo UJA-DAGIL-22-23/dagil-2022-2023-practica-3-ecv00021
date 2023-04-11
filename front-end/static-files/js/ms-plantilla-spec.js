@@ -205,6 +205,10 @@ Las siguientes funciones no puedo probarlas porque dependen del texto introducid
 -modificarNombre()
 -modificarJugador()
 -modificar()
+-buscar()
+-incluyeApellidos()
+-incluyePais()
+-incluyeCampeonatos()
 */
 
 describe("Plantilla.imprimeJugador: ", function () {

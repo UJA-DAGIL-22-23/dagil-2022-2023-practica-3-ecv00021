@@ -338,7 +338,7 @@ Plantilla.incluyeNombre = function (vector) {
 }
 
 /**
- * Función para introducir el texto coorespondiente para buscar los jugadores cuyo nombre contienen dicho texto.
+ * Función para introducir el texto correspondiente para buscar los jugadores cuyo nombre contienen dicho texto.
  */
 
 Plantilla.buscarNombre = function () {
@@ -501,3 +501,123 @@ Plantilla.guardarJugador = async function (id_jugador) {
         //console.error(error)
     }
 }
+
+/**
+ * Función para mostrar los datos de todos los jugadores cuyos apellidos contengan el texto introducido
+ * @param {Vector_de_personas} vector Vector con los datos de las personas a mostrar
+ */
+
+Plantilla.incluyeApellidos = function (vector) {
+    var texto = document.getElementById("id_apellidos").value;
+    let msj = "";
+
+    for(var i=0; i < vector.length; i++){
+        let jugador=vector[i].data;
+        var ap = jugador.apellidos;
+        if(ap.includes(texto)){
+            msj += `<div> 
+            <h1> Jugador </h1>
+            <p> Nombre del jugador: ${jugador.nombre} </p>
+            <p> Apellidos del jugador: ${jugador.apellidos} </p>
+            <p> Fecha de nacimiento del jugador: ${jugador.fechaNacimiento.dia}/${jugador.fechaNacimiento.mes}/${jugador.fechaNacimiento.anio} </p>
+            <p> País del jugador: ${jugador.pais} </p>
+            <p> Años competición del jugador: ${jugador.aniosCompeticion} </p>
+            <p> Número de campeonatos ganados del jugador: ${jugador.numero_campeonatos_ganados} </p>
+            <p> Nombre del equipo del jugador: ${jugador.nombre_equipo} </p>
+            <p> Categoría del jugador: ${jugador.categoria} </p>
+            <p> Altura del jugador: ${jugador.altura} </p>
+            </div>`;
+        }
+    }
+
+    // Borro toda la info de Article y la sustituyo por la que me interesa
+    Frontend.Article.actualizar("Jugadores cuyos apellidos contienen '" + texto + "'", msj)
+
+}
+
+/**
+ * Función para mostrar los datos de todos los jugadores cuyo país sea el texto introducido
+ * @param {Vector_de_personas} vector Vector con los datos de las personas a mostrar
+ */
+
+Plantilla.incluyePais = function (vector) {
+    var texto = document.getElementById("id_pais").value;
+    let msj = "";
+
+    for(var i=0; i < vector.length; i++){
+        let jugador=vector[i].data;
+        var pais = jugador.pais;
+        if(pais == texto){
+            msj += `<div> 
+            <h1> Jugador </h1>
+            <p> Nombre del jugador: ${jugador.nombre} </p>
+            <p> Apellidos del jugador: ${jugador.apellidos} </p>
+            <p> Fecha de nacimiento del jugador: ${jugador.fechaNacimiento.dia}/${jugador.fechaNacimiento.mes}/${jugador.fechaNacimiento.anio} </p>
+            <p> País del jugador: ${jugador.pais} </p>
+            <p> Años competición del jugador: ${jugador.aniosCompeticion} </p>
+            <p> Número de campeonatos ganados del jugador: ${jugador.numero_campeonatos_ganados} </p>
+            <p> Nombre del equipo del jugador: ${jugador.nombre_equipo} </p>
+            <p> Categoría del jugador: ${jugador.categoria} </p>
+            <p> Altura del jugador: ${jugador.altura} </p>
+            </div>`;
+        }
+    }
+
+    // Borro toda la info de Article y la sustituyo por la que me interesa
+    Frontend.Article.actualizar("Jugadores cuyo país es '" + texto + "'", msj)
+
+}
+
+/**
+ * Función para mostrar los datos de todos los jugadores cuyo nº de campeonatos ganados coninciden con el texto introducido
+ * @param {Vector_de_personas} vector Vector con los datos de las personas a mostrar
+ */
+
+Plantilla.incluyeCampeonatos = function (vector) {
+    var texto = document.getElementById("id_campeonatos").value;
+    let msj = "";
+
+    for(var i=0; i < vector.length; i++){
+        let jugador=vector[i].data;
+        var cam = jugador.numero_campeonatos_ganados;
+        if(cam == texto){
+            msj += `<div> 
+            <h1> Jugador </h1>
+            <p> Nombre del jugador: ${jugador.nombre} </p>
+            <p> Apellidos del jugador: ${jugador.apellidos} </p>
+            <p> Fecha de nacimiento del jugador: ${jugador.fechaNacimiento.dia}/${jugador.fechaNacimiento.mes}/${jugador.fechaNacimiento.anio} </p>
+            <p> País del jugador: ${jugador.pais} </p>
+            <p> Años competición del jugador: ${jugador.aniosCompeticion} </p>
+            <p> Número de campeonatos ganados del jugador: ${jugador.numero_campeonatos_ganados} </p>
+            <p> Nombre del equipo del jugador: ${jugador.nombre_equipo} </p>
+            <p> Categoría del jugador: ${jugador.categoria} </p>
+            <p> Altura del jugador: ${jugador.altura} </p>
+            </div>`;
+        }
+    }
+
+    // Borro toda la info de Article y la sustituyo por la que me interesa
+    Frontend.Article.actualizar("Jugadores que hayan ganado " + texto + " campeonatos", msj)
+
+}
+
+/**
+ * Función para introducir el texto correspondiente para buscar los jugadores según sus apellidos, país o nº de campeonatos ganados.
+ */
+
+Plantilla.buscar = function () {
+    let msj = `<div>
+    <p> Buscar jugadores cuyos apellidos incluyen: </p>
+    <input type="text" id="id_apellidos">
+    <button onclick="javascript:Plantilla.recupera(Plantilla.incluyeApellidos);">Buscar</button>
+    <p> Buscar jugadores cuyo país sea: </p>
+    <input type="text" id="id_pais">
+    <button onclick="javascript:Plantilla.recupera(Plantilla.incluyePais);">Buscar</button>
+    <p> Buscar jugadores que hayan ganado el siguiente nº de campeonatos: </p>
+    <input type="text" id="id_campeonatos">
+    <button onclick="javascript:Plantilla.recupera(Plantilla.incluyeCampeonatos);">Buscar</button>
+    </div>`;
+
+    Frontend.Article.actualizar("Buscar jugadores por campos", msj)
+}
+
