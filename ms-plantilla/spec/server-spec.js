@@ -72,7 +72,6 @@ describe('Servidor PLANTILLA:', () => {
       .expect(200)
       .expect('Content-Type', /json/)
       .expect(function (res) {
-        //console.log( res.body ); // Para comprobar qué contiene exactamente res.body
         assert(res.body.data.hasOwnProperty('nombre'));
         assert(res.body.data.nombre === "Fernando");
       })
@@ -86,7 +85,6 @@ describe('Servidor PLANTILLA:', () => {
       .expect(200)
       .expect('Content-Type', /json/)
       .expect(function (res) {
-        // console.log( res.body ); // Para comprobar qué contiene exactamente res.body
         assert(res.body.data.length === 10);
       })
       .end((error) => { error ? done.fail(error) : done(); }
@@ -158,7 +156,6 @@ describe('Servidor PLANTILLA:', () => {
       .expect(200)
       .expect('Content-Type', /json/)
       .expect(function (res) {
-        //console.log( "Server-spec , /setTodo res.body", res.body ); // Para comprobar qué contiene exactamente res.body
         assert(res.body.data.hasOwnProperty('nombre'));
         assert(res.body.data.nombre === NOMBRE_TEST);
         assert(res.body.data.hasOwnProperty('apellidos'));

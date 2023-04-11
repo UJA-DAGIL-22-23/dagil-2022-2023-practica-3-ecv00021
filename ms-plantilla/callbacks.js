@@ -68,11 +68,9 @@ const CB_MODEL_SELECTS = {
     */
     getPorId: async (req, res) => {
         try {
-            // console.log( "getPorId req", req.params.idPersona ) // req.params contiene todos los parámetros de la llamada
             let persona = await client.query(
                 q.Get(q.Ref(q.Collection(COLLECTION), req.params.idPersona))
             )
-            // console.log( persona ) // Para comprobar qué se ha devuelto en persona
             CORS(res)
                 .status(200)
                 .json(persona)
@@ -94,7 +92,6 @@ const CB_MODEL_SELECTS = {
                     q.Lambda("X", q.Get(q.Var("X")))
                 )
             )
-            // console.log( personas ) // Para comprobar qué se ha devuelto en personas
             CORS(res)
                 .status(200)
                 .json(personas)
@@ -109,14 +106,9 @@ const CB_MODEL_SELECTS = {
     * @param {*} res Objeto Response con las respuesta que se va a dar a la petición recibida
     */
     setNombre: async (req, res) => {
-        //console.log("setTodo req.body", req) // req.body contiene todos los parámetros de la llamada
         try {
             let valorDevuelto = {}
-            // Hay que comprobar Object.keys(req.body).length para saber si req.body es objeto "normal" o con problemas
-            // Cuando la llamada viene de un formulario, se crea una sola entrada, con toda la info en una sola key y el value está vacío.
-            // Cuando la llamada se hace con un objeto (como se hace desde el server-spec.js), el value No está vacío.
             let data = (Object.values(req.body)[0] === '') ? JSON.parse(Object.keys(req.body)[0]) : req.body
-            //console.log("SETTODO data es", data)
             let persona = await client.query(
                 q.Update(
                     q.Ref(q.Collection(COLLECTION), data.id_persona),
@@ -129,7 +121,6 @@ const CB_MODEL_SELECTS = {
             )
                 .then((ret) => {
                     valorDevuelto = ret
-                    //console.log("Valor devuelto ", valorDevuelto)
                     CORS(res)
                         .status(200)
                         .header( 'Content-Type', 'application/json' )
@@ -147,11 +138,9 @@ const CB_MODEL_SELECTS = {
     * @param {*} res Objeto Response con las respuesta que se va a dar a la petición recibida
     */
     setTodo: async (req, res) => {
-        //console.log("setTodo req.body", req) // req.body contiene todos los parámetros de la llamada
         try {
             let valorDevuelto = {}
             let data = (Object.values(req.body)[0] === '') ? JSON.parse(Object.keys(req.body)[0]) : req.body
-            //console.log("SETTODO data es", data)
             let persona = await client.query(
                 q.Update(
                     q.Ref(q.Collection(COLLECTION), data.id_persona),
@@ -170,7 +159,6 @@ const CB_MODEL_SELECTS = {
             )
                 .then((ret) => {
                     valorDevuelto = ret
-                    //console.log("Valor devuelto ", valorDevuelto)
                     CORS(res)
                         .status(200)
                         .header( 'Content-Type', 'application/json' )

@@ -132,8 +132,7 @@ Plantilla.recuperaJugador = async function (idJugador, callBackFn) {
  */
 
 Plantilla.imprimeJugador = function (jugador) {
-    // console.log(persona) // Para comprobar lo que hay en vector
-    //let msj = Personas.personaComoFormulario(persona);
+    
     jugador=jugador.data
     let msj = `<div> 
     <p> Nombre del jugador: ${jugador.nombre} </p>
@@ -199,7 +198,6 @@ Plantilla.mostrarNombresJugadores = function () {
  */
 
 Plantilla.imprimeNombres = function (vector) {
-    // console.log(vector) // Para comprobar lo que hay en vector
 
     let msj = `<div>`
     vector.forEach(e => msj += `<p> ${e.data.nombre} </p>`)
@@ -222,7 +220,6 @@ Plantilla.mostrarNombresOrdenados = function () {
  */
 
 Plantilla.imprimeNombresOrdenados = function (vector) {
-    // console.log(vector) // Para comprobar lo que hay en vector
 
     vector.sort((a, b) => a.data.nombre.localeCompare(b.data.nombre)); 
 
@@ -247,7 +244,6 @@ Plantilla.mostrarDatosJugadores = function () {
  */
 
 Plantilla.imprimeDatos = function (vector) {
-    // console.log(vector) // Para comprobar lo que hay en vector
  
     let msj = `<div>`
     vector.forEach(e => msj += ` <h1> Jugador </h1>
@@ -280,8 +276,7 @@ Plantilla.siguienteAnterior = function (idJugador) {
  */
 
 Plantilla.imprimeJugadorSigAnt = function (jugador) {
-    // console.log(persona) // Para comprobar lo que hay en vector
-    //let msj = Personas.personaComoFormulario(persona);
+    
     jugador=jugador.data
     let msj = `<div> 
     <p> Nombre del jugador: ${jugador.nombre} </p>

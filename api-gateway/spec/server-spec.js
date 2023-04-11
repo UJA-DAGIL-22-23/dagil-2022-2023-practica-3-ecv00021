@@ -19,7 +19,6 @@ describe('API Gateway: rutas estáticas', () => {
         .expect(200)
         .expect('Content-Type', /json/)
         .expect(function (res) {
-          //console.log( res.body ); // Para comprobar qué contiene exactamente res.body
           assert(res.body.hasOwnProperty('mensaje'));
           assert(res.body.mensaje === "Microservicio MS Plantilla: home");
 
@@ -32,7 +31,6 @@ describe('API Gateway: rutas estáticas', () => {
         .expect(200)
         .expect('Content-Type', /json/)
         .expect(function (res) {
-          //console.log( "BODY ACERCA DE ", res.body ); // Para comprobar qué contiene exactamente res.body
           assert(res.body.hasOwnProperty('mensaje'));
           assert(res.body.mensaje === "Microservicio MS Plantilla: acerca de");
 
@@ -51,7 +49,6 @@ describe('BBDD Personas', () => {
       .expect(200)
       .expect('Content-Type', /json/)
       .expect(function (res) {
-        // console.log( "getPorId Persona", res.body ); // Para comprobar qué contiene exactamente res.body
         assert(res.body.hasOwnProperty('data'));
         assert(res.body.data.hasOwnProperty('nombre'));
         assert(res.body.data.nombre === "Fernando");
@@ -65,7 +62,6 @@ describe('BBDD Personas', () => {
       .expect(200)
       .expect('Content-Type', /json/)
       .expect(function (res) {
-        //console.log( "Get Todos Personas", res.body ); // Para comprobar qué contiene exactamente res.body
         assert(res.body.hasOwnProperty('data'));
         assert(res.body.data.length === 10);
 
@@ -138,7 +134,6 @@ describe('BBDD Personas', () => {
       .expect(200)
       .expect('Content-Type', /json/)
       .expect(function (res) {
-        //console.log( "Server-spec , /setTodo res.body", res.body ); // Para comprobar qué contiene exactamente res.body
         assert(res.body.data.hasOwnProperty('nombre'));
         assert(res.body.data.nombre === NOMBRE_TEST);
         assert(res.body.data.hasOwnProperty('apellidos'));
