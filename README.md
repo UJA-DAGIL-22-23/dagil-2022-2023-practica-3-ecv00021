@@ -348,3 +348,27 @@ Enlace al tablero: https://trello.com/b/DMmJ606U/tablero-pr3
 <img src='imagenes\hu_13_3.png'>
 <img src='imagenes\hu_13_4.png'>
 <img src='imagenes\hu_13_5.png'>
+
+## Cuarto incremento v4_11-04-2023
+### HU implementadas
+- 09- Ver un listado de todos los datos de jugadores/equipos que cumplen con un criterio de búsqueda indicado por el usuario para alguno de sus otros campos distintos del nombre. Se deberá poder buscar al menos por 3 campos distintos (además del nombre).
+- 10- Ver un listado de todos los datos de jugadores/equipos que cumplen simultáneamente con varios criterios de búsqueda indicados por el usuario para algunos de sus campos. Se deberá poder buscar al menos por 3 campos distintos (además del nombre). 
+- 11- Ver un listado de todos los datos de jugadores/equipos que cumplen al menos con uno de un conjunto de criterios de búsqueda indicado por el usuario para algunos de sus campos. Se deberá poder buscar al menos por 3 campos distintos (además del nombre).
+
+### Captura Trello al comienzo del incremento
+<img src='imagenes\trello_inicio4.png'>
+
+### Captura Trello al final del incremento
+<img src='imagenes\trello_final4.png'>
+
+### Captura funcionalidad HU 09
+<img src='imagenes\hu_09_1.png'>
+<img src='imagenes\hu_09_2.png'>
+<img src='imagenes\hu_09_3.png'>
+<img src='imagenes\hu_09_4.png'>
+
+### Captura funcionalidad HU 10
+-No me ha dado tiempo a realizar esta historia de usuario
+
+### Captura funcionalidad HU 11
+-No me ha dado tiempo a realizar esta historia de usuario
