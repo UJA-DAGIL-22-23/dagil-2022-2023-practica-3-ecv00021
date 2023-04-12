@@ -305,7 +305,7 @@ Plantilla.imprimeJugadorSigAnt = function (jugador) {
  */
 
 Plantilla.incluyeNombre = function (vector, texto) {
-    // Si está definido el campo de búsqueda, uso el valor que ha introducido el usuario.ç
+    // Si está definido el campo de búsqueda, uso el valor que ha introducido el usuario.
     // Si no, uso el valor que se ha pasado por parámetro.
     if( typeof document.getElementById("id_texto") != "undefined" && document.getElementById("id_texto")!=null ) texto=document.getElementById("id_texto").value
     let msj = "";
@@ -504,8 +504,10 @@ Plantilla.guardarJugador = async function (id_jugador) {
  * @param {Vector_de_personas} vector Vector con los datos de las personas a mostrar
  */
 
-Plantilla.incluyeApellidos = function (vector) {
-    var texto = document.getElementById("id_apellidos").value;
+Plantilla.incluyeApellidos = function (vector, texto) {
+    // Si está definido el campo de búsqueda, uso el valor que ha introducido el usuario.
+    // Si no, uso el valor que se ha pasado por parámetro.
+    if( typeof document.getElementById("id_apellidos") != "undefined" && document.getElementById("id_apellidos")!=null ) texto=document.getElementById("id_apellidos").value
     let msj = "";
 
     for(var i=0; i < vector.length; i++){
@@ -537,8 +539,10 @@ Plantilla.incluyeApellidos = function (vector) {
  * @param {Vector_de_personas} vector Vector con los datos de las personas a mostrar
  */
 
-Plantilla.incluyePais = function (vector) {
-    var texto = document.getElementById("id_pais").value;
+Plantilla.incluyePais = function (vector, texto) {
+    // Si está definido el campo de búsqueda, uso el valor que ha introducido el usuario.
+    // Si no, uso el valor que se ha pasado por parámetro.
+    if( typeof document.getElementById("id_pais") != "undefined" && document.getElementById("id_pais")!=null ) texto=document.getElementById("id_pais").value
     let msj = "";
 
     for(var i=0; i < vector.length; i++){
@@ -570,8 +574,10 @@ Plantilla.incluyePais = function (vector) {
  * @param {Vector_de_personas} vector Vector con los datos de las personas a mostrar
  */
 
-Plantilla.incluyeCampeonatos = function (vector) {
-    var texto = document.getElementById("id_campeonatos").value;
+Plantilla.incluyeCampeonatos = function (vector, texto) {
+    // Si está definido el campo de búsqueda, uso el valor que ha introducido el usuario.
+    // Si no, uso el valor que se ha pasado por parámetro.
+    if( typeof document.getElementById("id_campeonatos") != "undefined" && document.getElementById("id_campeonatos")!=null ) texto=document.getElementById("id_campeonatos").value
     let msj = "";
 
     for(var i=0; i < vector.length; i++){

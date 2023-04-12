@@ -197,17 +197,8 @@ Las siguientes funciones no podemos probarlas ya que se encargan de probar las c
 -siguienteAnterior()
 -guardar()
 -guardarJugador()
-
-Las siguientes funciones no puedo probarlas porque dependen del texto introducido por el usuario:
--buscarNombre()
 -modificarNombreJugador()
--modificarNombre()
 -modificarJugador()
--modificar()
--buscar()
--incluyeApellidos()
--incluyePais()
--incluyeCampeonatos()
 */
 
 describe("Plantilla.imprimeJugador: ", function () {
@@ -243,7 +234,7 @@ describe("Plantilla.imprimeNombres: ", function () {
 
 
 describe("Plantilla.imprimeNombresOrdenados: ", function () {
-    it("muestra datos ordenados alfabéticamente",
+    it("muestra los nombres ordenados alfabéticamente",
         function () {
             let personas = d.datos_personas
             Plantilla.imprimeNombres(personas)
@@ -330,6 +321,121 @@ describe("Plantilla.buscarNombre: ", function () {
         })
 })
 
+describe("Plantilla.modificarNombre: ", function () {
+    it("muestra los datos del jugador cuyo nombre se va a modificar",
+        function () {
+            let persona = d.datos_personas[0]
+            Plantilla.modificarNombre(persona)
+            expect(elementoTitulo.innerHTML).toBe("Modificar nombre jugador")
+            expect(elementoContenido.innerHTML.includes("Nombre del jugador")).toBeTrue()  
+            expect(elementoContenido.innerHTML.includes(persona.data.nombre)).toBeTrue()
+        })
+        it("no muestra como contenido los ojos del jugador",
+        function () {
+            let persona = d.datos_personas[0]
+            Plantilla.modificarNombre(persona)
+            expect(elementoContenido.innerHTML.includes("ojos del jugador")).toBeFalse()
+        })
+})
+
+describe("Plantilla.modificar: ", function () {
+    it("muestra los datos del jugador a modificar",
+        function () {
+            let persona = d.datos_personas[0]
+            Plantilla.modificar(persona)
+            expect(elementoTitulo.innerHTML).toBe("Modificar datos jugador")
+            expect(elementoContenido.innerHTML.includes("Apellidos del jugador")).toBeTrue()  
+            expect(elementoContenido.innerHTML.includes(persona.data.apellidos)).toBeTrue()
+        })
+        it("no muestra como contenido los ojos del jugador",
+        function () {
+            let persona = d.datos_personas[0]
+            Plantilla.modificar(persona)
+            expect(elementoContenido.innerHTML.includes("ojos del jugador")).toBeFalse()
+        })
+})
+
+describe("Plantilla.incluyeApellidos: ", function () {
+    it("muestra los datos de un jugador cuyos apellidos contengan Carmona",
+        function () {
+            let personas = d.datos_personas
+            let texto = "Carmona"
+            Plantilla.incluyeApellidos(personas, texto )
+            expect(elementoTitulo.innerHTML.includes("Jugadores cuyos apellidos contienen")).toBeTrue()
+            expect(elementoContenido.innerHTML.includes("Nombre del jugador")).toBeTrue()
+            expect(elementoContenido.innerHTML.includes(texto)).toBeTrue()  
+        })
+        it("no muestra los datos de ningún jugador cuyos apellidos contengan hola",
+        function () {
+            let personas = d.datos_personas
+            let texto = "hola"
+            Plantilla.incluyeApellidos(personas, texto)
+            expect(elementoTitulo.innerHTML.includes("Jugadores cuyos apellidos contienen")).toBeTrue()
+            expect(elementoContenido.innerHTML.includes("Nombre del jugador")).toBeFalse()
+            expect(elementoContenido.innerHTML.includes(texto)).toBeFalse()  
+        })
+    
+})
+
+describe("Plantilla.incluyePais: ", function () {
+    it("muestra los datos de un jugador cuyo país sea España",
+        function () {
+            let personas = d.datos_personas
+            let texto = "España"
+            Plantilla.incluyePais(personas, texto )
+            expect(elementoTitulo.innerHTML.includes("Jugadores cuyo país es")).toBeTrue()
+            expect(elementoContenido.innerHTML.includes("Nombre del jugador")).toBeTrue()
+            expect(elementoContenido.innerHTML.includes(texto)).toBeTrue()  
+        })
+        it("no muestra los datos de ningún jugador cuyo país sea Francia",
+        function () {
+            let personas = d.datos_personas
+            let texto = "Francia"
+            Plantilla.incluyePais(personas, texto)
+            expect(elementoTitulo.innerHTML.includes("Jugadores cuyo país es")).toBeTrue()
+            expect(elementoContenido.innerHTML.includes("Nombre del jugador")).toBeFalse()
+            expect(elementoContenido.innerHTML.includes(texto)).toBeFalse()  
+        })
+    
+})
+
+describe("Plantilla.incluyeCampeonatos: ", function () {
+    it("muestra los datos de un jugador que haya ganado 1 campeonato",
+        function () {
+            let personas = d.datos_personas
+            let texto = "1"
+            Plantilla.incluyeCampeonatos(personas, texto )
+            expect(elementoTitulo.innerHTML.includes("Jugadores que hayan ganado")).toBeTrue()
+            expect(elementoContenido.innerHTML.includes("Nombre del jugador")).toBeTrue()
+            expect(elementoContenido.innerHTML.includes(texto)).toBeTrue()  
+        })
+        it("no muestra los datos de ningún jugador que hayan ganado 5 campeonatos",
+        function () {
+            let personas = d.datos_personas
+            let texto = "5"
+            Plantilla.incluyeCampeonatos(personas, texto)
+            expect(elementoTitulo.innerHTML.includes("Jugadores que hayan ganado")).toBeTrue()
+            expect(elementoContenido.innerHTML.includes("Nombre del jugador")).toBeFalse()
+            expect(elementoContenido.innerHTML.includes(texto)).toBeFalse()  
+        })
+    
+})
+
+describe("Plantilla.buscar: ", function () {
+    it("muestra buscar por tres campos",
+        function () {
+            Plantilla.buscar()
+            expect(elementoTitulo.innerHTML).toBe("Buscar jugadores por campos")
+            expect(elementoContenido.innerHTML.includes("Buscar jugadores cuyos apellidos incluyen")).toBeTrue()  
+            expect(elementoContenido.innerHTML.includes("Buscar jugadores cuyo país sea")).toBeTrue() 
+            expect(elementoContenido.innerHTML.includes("Buscar jugadores que hayan ganado el siguiente nº de campeonatos")).toBeTrue() 
+        })
+        it("no muestra como contenido Buscar jugadores cuyo nombre tiene",
+        function () {
+            Plantilla.buscar()
+            expect(elementoContenido.innerHTML.includes("Buscar jugadores cuyo nombre tiene")).toBeFalse()
+        })
+})
 
 
 /*
