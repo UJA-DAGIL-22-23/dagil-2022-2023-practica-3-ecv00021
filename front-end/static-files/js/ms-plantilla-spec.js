@@ -199,7 +199,6 @@ Las siguientes funciones no podemos probarlas ya que se encargan de probar las c
 -guardarJugador()
 
 Las siguientes funciones no puedo probarlas porque dependen del texto introducido por el usuario:
--incluyeNombre()
 -buscarNombre()
 -modificarNombreJugador()
 -modificarNombre()
@@ -294,6 +293,30 @@ describe("Plantilla.imprimeJugadorSigAnt: ", function () {
             expect(elementoContenido.innerHTML.includes(persona.data.altura)).toBeTrue()
         })
 })
+
+describe("Plantilla.incluyeNombre: ", function () {
+    it("muestra los datos de un jugador cuyo nombre contenga Elena",
+        function () {
+            let personas = d.datos_personas
+            let texto = "Elena"
+            Plantilla.incluyeNombre(personas, texto )
+            expect(elementoTitulo.innerHTML.includes("Jugadores cuyo nombre contiene")).toBeTrue()
+            expect(elementoContenido.innerHTML.includes("Nombre del jugador")).toBeTrue()
+            expect(elementoContenido.innerHTML.includes(texto)).toBeTrue()  
+        })
+        it("no muestra los datos de ningún jugador cuyo nombre contenga Patata Frita",
+        function () {
+            let personas = d.datos_personas
+            let texto = "Patata Frita"
+            Plantilla.incluyeNombre(personas, texto)
+            expect(elementoTitulo.innerHTML.includes("Jugadores cuyo nombre contiene")).toBeTrue()
+            expect(elementoContenido.innerHTML.includes("Nombre del jugador")).toBeFalse()
+            expect(elementoContenido.innerHTML.includes(texto)).toBeFalse()  
+        })
+    
+})
+
+
 
 /*
 IMPORTANTE

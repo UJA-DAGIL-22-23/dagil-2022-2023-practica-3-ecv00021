@@ -304,8 +304,10 @@ Plantilla.imprimeJugadorSigAnt = function (jugador) {
  * @param {Vector_de_personas} vector Vector con los datos de las personas a mostrar
  */
 
-Plantilla.incluyeNombre = function (vector) {
-    var texto = document.getElementById("id_texto").value;
+Plantilla.incluyeNombre = function (vector, texto) {
+    // Si está definido el campo de búsqueda, uso el valor que ha introducido el usuario.ç
+    // Si no, uso el valor que se ha pasado por parámetro.
+    if( typeof document.getElementById("id_texto") != "undefined" && document.getElementById("id_texto")!=null ) texto=document.getElementById("id_texto").value
     let msj = "";
 
     for(var i=0; i < vector.length; i++){
