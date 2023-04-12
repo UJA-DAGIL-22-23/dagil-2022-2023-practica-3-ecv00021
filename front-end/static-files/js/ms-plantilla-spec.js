@@ -316,6 +316,20 @@ describe("Plantilla.incluyeNombre: ", function () {
     
 })
 
+describe("Plantilla.buscarNombre: ", function () {
+    it("muestra como contenido Buscar jugadores cuyo nombre incluye",
+        function () {
+            Plantilla.buscarNombre()
+            expect(elementoTitulo.innerHTML).toBe("Buscar jugadores por nombre")
+            expect(elementoContenido.innerHTML.includes("Buscar jugadores cuyo nombre incluye")).toBeTrue()  
+        })
+        it("no muestra como contenido Buscar jugadores cuyo nombre tiene",
+        function () {
+            Plantilla.buscarNombre()
+            expect(elementoContenido.innerHTML.includes("Buscar jugadores cuyo nombre tiene")).toBeFalse()
+        })
+})
+
 
 
 /*
